@@ -1,0 +1,122 @@
+//***********************************************
+//* UNIVERSIDADE FEDERAL DO PAMPA - ALEGRETE-RS *
+//* CURSO DE ENGENHARIA ELÉTRICA 2022/1         *
+//* TRABALHO DE ALGORITMOS E PROGRAMAÇÃO        *
+//* CAIXA ELETRÔNICO EM JAVA                    *
+//* By: LUCAS E. JAQUES & VITÓRIA MOLINA        *
+//***********************************************
+
+import java.util.Scanner;
+
+public class ElectronicSystemBank {
+
+	public static void main(String[] args) {
+		
+    String nome;
+	int op = 4;
+    float saldo = 1000, sacar, depositar;
+	
+        Scanner entrada = new Scanner(System.in);
+    
+        System.out.println("--------------------");
+        System.out.println("* CAIXA ELETRONICO *");
+        System.out.println("--------------------");
+        System.out.print("Digite o seu nome para entrar: ");
+    
+        nome = entrada.nextLine();
+    
+        System.out.println("SEJA BEM-VINDO(a): " + nome + " EM SUA CONTA!");
+    	
+    do {
+    		
+        System.out.println("_____________________________");
+        System.out.println("MENU PRINCIPAL");
+        System.out.println("_____________________________");
+        System.out.println("[1] DEPOSITAR");
+        System.out.println("[2] SACAR");
+        System.out.println("[3] EXIBIR SALDO");
+        System.out.println("[4] SAIR");
+        
+    	   System.out.println("_____________________________");
+    	   System.out.println("");
+           System.out.print("Digite uma opcao: ");   
+           
+    op = entrada.nextInt();
+           
+    switch(op){
+	
+           case 1:{
+           op = '1';
+           System.out.print("Qual valor deseja depositar? ");
+           depositar = entrada.nextFloat();
+           
+    if (depositar <= 0) {
+           
+        	     System.out.println("");   
+        	     System.out.println("----------------------------");
+                 System.out.println("VALOR INVALIDO");
+                 System.out.println("----------------------------");
+           
+    }else {
+        	   saldo = saldo + depositar;
+        	   
+        	     System.out.println("");
+        	     System.out.println("----------------------------");
+                 System.out.println("VALOR DEPOSITADO!");
+                 System.out.println("----------------------------");
+           }
+           break;
+           } 
+           case 2:{
+        	   
+               System.out.print("Qual valor deseja sacar? ");
+               sacar = entrada.nextFloat();
+               
+			   if (sacar > saldo) {
+               	
+            	System.out.println("");
+            	System.out.println("----------------------------");
+               	System.out.println("SALDO INSUFICIENTE");
+               	System.out.println("----------------------------");
+               	 
+               }else {
+               	
+               	saldo = saldo - sacar;
+               	 
+               	System.out.println("");
+               	System.out.println("----------------------------");
+                System.out.println("SAQUE EFETUADO COM SUCESSO!");
+                System.out.println("----------------------------");
+               }
+               break;
+           }        
+           case 3:{
+        	   
+               System.out.println("");
+               System.out.println("----------------------------");
+               System.out.println("O seu saldo e: R$ " +saldo);
+               System.out.println("----------------------------");
+               
+			   break;
+           }
+           case 4:{ 
+		   
+               break;
+           }  
+               default:	
+            	   
+               System.out.println("");
+               System.out.println("----------------------------");
+               System.out.println("OPCAO NAO ENCONTRADA!");
+               System.out.println("----------------------------");
+           }
+             	
+    }while(op != 4);
+       
+       System.out.println("");
+       System.out.println("--------------------------------------------------");
+       System.out.println("FINALIZANDO SISTEMA... VOLTE SEMPRE! "+nome);
+       System.out.println("--------------------------------------------------");
+       
+	}
+}
